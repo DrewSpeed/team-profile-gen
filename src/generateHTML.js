@@ -1,12 +1,12 @@
 // Manager card
 const generateManager = function(manager) {
     return `
-<div class="col-4 mt-3">
+<div class="col-9 col-lg-4 mt-3">
     <div class="card">
         <div class="card-header">
-            <h2>${manager.name}</h2>
+            <h2 class="text-center">${manager.name}</h2>
         </div>
-            <h3><i class="bi bi-briefcase"></i> Manager</h3>
+            <h3 class="text-center mt-3"><i class="bi bi-briefcase"></i> Manager</h3>
         <div class="card-body">
             <p class="id">ID: ${manager.id} </p>
             <p class="email">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
@@ -20,16 +20,16 @@ const generateManager = function(manager) {
 // Engineer card
 const generateEngineer = function(engineer) {
     return `
-<div class="col-4 mt-3">
+<div class="col-9 col-lg-4 mt-3">
     <div class="card">
         <div class="card-header">
-            <h2>${engineer.name}</h2>
+            <h2 class="text-center">${engineer.name}</h2>
         </div>
-            <h3><i class="bi bi-eyeglasses"></i> Engineer</h3>
+            <h3 class="text-center mt-3"><i class="bi bi-eyeglasses"></i> Engineer</h3>
         <div class="card-body">
             <p class="id">ID: ${engineer.id} </p>
             <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-            <p class="office">Github: <a href="github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
+            <p class="office">Github: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
         </div>
     </div>
 </div>
@@ -39,12 +39,12 @@ const generateEngineer = function(engineer) {
 // Intern card
 const generateIntern = function(intern) {
     return `
-<div class="col-4 mt-3">
+<div class="col-9 col-lg-4 mt-3">
     <div class="card">
         <div class="card-header">
-            <h2>${intern.name}</h2>
+            <h2 class="text-center">${intern.name}</h2>
         </div>
-            <h3><i class="bi bi-mortarboard"></i> Intern</h3>
+            <h3 class="text-center mt-3"><i class="bi bi-mortarboard"></i> Intern</h3>
         <div class="card-body">
             <p class="id">ID: ${intern.id} </p>
             <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
@@ -100,7 +100,7 @@ const generatePage = function () {
 <body>
     <header>
         <nav class="navbar" id="navbar">
-            <span class="mb-2 h1 display-2 w-100 text-center" id="navbar-text">Team Profile</span>
+            <span class="mb-2 h1 display-3 w-100 text-center" id="navbar-text">Team Profile</span>
         </nav>
     </header>
     <main>
