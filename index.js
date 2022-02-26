@@ -77,9 +77,9 @@ const addManager = () => {
         //push above to teamArray
         teamArray.push(manager);
         console.log(`
-        =====================================
+        ===================================
         Manager ${name} added to the team.
-        -------------------------------------
+        -----------------------------------
         `)
         employeeAddOption()
     })
@@ -98,10 +98,8 @@ const employeeAddOption = () => {
     .then(response => {
         choice = response.confirmAddEmployee
         if (choice === false) {
-           return console.log(`
-        Team Complete. Check the 'dist' folder for your generated page.
-        -------------------------------------
-            `)
+        console.log(teamArray);
+        return;
         } else {
         addEmployee()
         }
@@ -112,7 +110,7 @@ const employeeAddOption = () => {
 const addEmployee = () => {
         console.log(`
         Now adding new team member...
-        -------------------------------------
+        -----------------------------------
         `);
     var employeeQuestions = [
         {
@@ -174,15 +172,32 @@ const addEmployee = () => {
 
     inquirer.prompt(employeeQuestions)
     .then(responses => {
-       console.log(responses);
+        if (responses.role === 'Engineer') {
+            const { name, id, email, github} = responses;
+            const engineer = new Engineer (name, id, email, github);
+            
+            //push above to teamArray
+            teamArray.push(engineer);
+            console.log(`
+        ===================================
+        Engineer ${name} added to the team.
+        -----------------------------------
+            `)
+            employeeAddOption()
+        } else {
+            const { name, id, email, school } = responses;
+            const intern = new Intern (name, id, email, school);
+
+            //push above to teamArray
+            teamArray.push(intern);
+            console.log(`
+        ===================================
+        Intern ${name} added to the team.
+        -----------------------------------
+            `)
+            employeeAddOption()
+        }
     })
 }
 
 addManager()
-    // if (answers) {
-    //     return console.log(`
-    //     Team Complete. Check the 'dist' folder for your generated page.
-    //     `)
-    // } else {
-    //     return addEmployee()
-    // }
