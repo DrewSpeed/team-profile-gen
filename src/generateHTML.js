@@ -55,6 +55,31 @@ const generateIntern = function(intern) {
 `;
 }
 
+generateHTML = (data) => {
+    pageArray = [];
+
+    data.forEach(employee => {
+        role = employee.getRole();
+
+        if (role === 'Manager') {
+            const managerCard = generateManager(employee);
+            pageArray.push(managerCard);
+        }
+        if (role === 'Engineer') {
+            const engineerCard = generateEngineer(employee);
+            pageArray.push(engineerCard);
+        }
+        if (role === 'Intern') {
+            const internCard = generateIntern(employee);
+            pageArray.push(internCard);
+        }
+    })
+
+    employeeCards = pageArray.join('');
+    pageMaker = generatePage(employeeCards);
+    return pageMaker
+}
+
 
 
 
@@ -69,13 +94,27 @@ const generatePage = function () {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <title>Generated Team</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Team Profile</title>
 </head>
 <body>
-    
+    <header>
+        <nav class="navbar" id="navbar">
+            <span class="navbar-brand mb-2 h1 w-100 text-center" id="navbar-text">Team Profile</span>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row justify-content-center" id="team-cards">
+            <!-- Team Cards -->
+            ${employeeCards}
+            </div>
+        </div>
+    </main>
 </body>
 </html>
 
-module.exports = generateHTML;
 `
 }
+
+module.exports = generateHTML;

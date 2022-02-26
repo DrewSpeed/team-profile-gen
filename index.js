@@ -7,13 +7,13 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
 // require the page HTML
-const generatePage = require('./src/generateHTML');
+const generateHTML = require('./src/generateHTML');
 
 // Empty array to push to and generate page with
 const teamArray = [];
 
 // prompts to add team Manager information
-const addManager = () => {
+const appStart = () => {
     var MgrQuestions = [
         {
             type: 'input',
@@ -84,27 +84,6 @@ const addManager = () => {
         employeeAddOption()
     })
 };
-
-// lets user choose whether or not to add a new employee
-const employeeAddOption = () => {
-    var addOption = [{
-        type: 'confirm',
-        name: 'confirmAddEmployee',
-        message: 'Would you like to add more team members?',
-        default: false
-    }]
-
-    inquirer.prompt(addOption)
-    .then(response => {
-        choice = response.confirmAddEmployee
-        if (choice === false) {
-        console.log(teamArray);
-        return;
-        } else {
-        addEmployee()
-        }
-    })
-}
 
 // adds employee if answered yes to employeeAddOption
 const addEmployee = () => {
@@ -200,4 +179,45 @@ const addEmployee = () => {
     })
 }
 
-addManager()
+// lets user choose whether or not to add a new employee
+const employeeAddOption = () => {
+    var addOption = [{
+        type: 'confirm',
+        name: 'confirmAddEmployee',
+        message: 'Would you like to add more team members?',
+        default: false
+    }]
+
+    inquirer.prompt(addOption)
+    .then(response => {
+        choice = response.confirmAddEmployee
+        if (choice === false) {
+            pageHandler(teamArray)
+        } else {
+        addEmployee()
+        }
+    })
+
+}
+
+ const pageHandler = teamArray => {
+     pageHTML = generateHTML(teamArray);
+     writeFile(pageHTML)
+ }
+
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Your team profile has been successfully created! Please check out index.html in the 'dist' folder.")
+        }
+    })
+}
+
+
+
+
+
+appStart()
