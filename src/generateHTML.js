@@ -5,8 +5,8 @@ const generateManager = function(manager) {
     <div class="card">
         <div class="card-header">
             <h2>${manager.name}</h2>
-            <h3><i class="bi bi-cup"></i> Manager</h3>
         </div>
+            <h3><i class="bi bi-briefcase"></i> Manager</h3>
         <div class="card-body">
             <p class="id">ID: ${manager.id} </p>
             <p class="email">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
@@ -24,12 +24,12 @@ const generateEngineer = function(engineer) {
     <div class="card">
         <div class="card-header">
             <h2>${engineer.name}</h2>
-            <h3><i class="bi bi-eyeglasses"></i> Engineer</h3>
         </div>
+            <h3><i class="bi bi-eyeglasses"></i> Engineer</h3>
         <div class="card-body">
             <p class="id">ID: ${engineer.id} </p>
             <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-            <p class="office">Github: <a href="github.com/${engineer.github}">${engineer.github}</a></p>
+            <p class="office">Github: <a href="github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
         </div>
     </div>
 </div>
@@ -43,8 +43,8 @@ const generateIntern = function(intern) {
     <div class="card">
         <div class="card-header">
             <h2>${intern.name}</h2>
-            <h3><i class="bi bi-mortarboard"></i> Intern</h3>
         </div>
+            <h3><i class="bi bi-mortarboard"></i> Intern</h3>
         <div class="card-body">
             <p class="id">ID: ${intern.id} </p>
             <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
@@ -100,7 +100,7 @@ const generatePage = function () {
 <body>
     <header>
         <nav class="navbar" id="navbar">
-            <span class="navbar-brand mb-2 h1 w-100 text-center" id="navbar-text">Team Profile</span>
+            <span class="mb-2 h1 display-2 w-100 text-center" id="navbar-text">Team Profile</span>
         </nav>
     </header>
     <main>
