@@ -6,7 +6,7 @@ const generateManager = function(manager) {
         <div class="card-header">
             <h2 class="text-center">${manager.name}</h2>
         </div>
-            <h3 class="text-center mt-3"><i class="bi bi-briefcase"></i> Manager</h3>
+            <h3 class="text-center mt-2"><i class="bi bi-briefcase"></i> Manager</h3>
         <div class="card-body">
             <p class="id">ID: ${manager.id} </p>
             <p class="email">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
@@ -25,7 +25,7 @@ const generateEngineer = function(engineer) {
         <div class="card-header">
             <h2 class="text-center">${engineer.name}</h2>
         </div>
-            <h3 class="text-center mt-3"><i class="bi bi-eyeglasses"></i> Engineer</h3>
+            <h3 class="text-center mt-2"><i class="bi bi-eyeglasses"></i> Engineer</h3>
         <div class="card-body">
             <p class="id">ID: ${engineer.id} </p>
             <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
@@ -44,7 +44,7 @@ const generateIntern = function(intern) {
         <div class="card-header">
             <h2 class="text-center">${intern.name}</h2>
         </div>
-            <h3 class="text-center mt-3"><i class="bi bi-mortarboard"></i> Intern</h3>
+            <h3 class="text-center mt-2"><i class="bi bi-mortarboard"></i> Intern</h3>
         <div class="card-body">
             <p class="id">ID: ${intern.id} </p>
             <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
