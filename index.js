@@ -103,7 +103,7 @@ const employeeAddOption = () => {
         -------------------------------------
             `)
         } else {
-        return addEmployee()
+        addEmployee()
         }
     })
 }
@@ -157,10 +157,25 @@ const addEmployee = () => {
             name: 'role',
             message: "Please choose the employee's role.",
             choices: ['Engineer', 'Intern']
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "Please enter the employee's github username.",
+            when: (input) => input.role === 'Engineer'
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Please enter the employee's school name.",
+            when: (input) => input.role === 'Intern'
         }
     ]
 
     inquirer.prompt(employeeQuestions)
+    .then(responses => {
+       console.log(responses);
+    })
 }
 
 addManager()
